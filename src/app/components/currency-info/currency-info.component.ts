@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EnumService } from 'src/app/services/enum.service';
+import { XchangeAPIService } from 'src/app/services/xchange-api.service';
 
 @Component({
   selector: 'app-currency-info',
@@ -12,22 +13,32 @@ export class CurrencyInfoComponent implements OnInit {
   currencyValue!: string;
   currencySign!: string;
   countryFlag!: string;
+  apiInfo!: any;
 
-  constructor(private enumService: EnumService) {
+  constructor(
+    private enumService: EnumService,
+    private xchangeApiService: XchangeAPIService
+  ) {
     this.currencyTypeEnum = enumService.currencyTypeEnum;
   }
 
   ngOnInit(): void {
-    switch (this.currencyType) {
-      case this.currencyTypeEnum.usDollar:
-        this.currencySign = '$';
-        break;
-      case this.currencyTypeEnum.ruRuble:
-        this.currencySign = '₽';
-        break;
-      case this.currencyTypeEnum.btc:
-        this.currencySign = '₿';
-        break;
-    }
+    this.xchangeApiService.getXchangeData().subscribe((res) => {
+      this.apiInfo = res;
+      switch (this.currencyType) {
+        case this.currencyTypeEnum.usDollar:
+          this.currencySign = '$';
+          this.currencyValue = this.apiInfo.rates.USD;
+          break;
+        case this.currencyTypeEnum.ruRuble:
+          this.currencySign = '₽';
+          this.currencyValue = this.apiInfo.rates.RUB;
+          break;
+        case this.currencyTypeEnum.btc:
+          this.currencySign = '₿';
+          this.currencyValue = this.apiInfo.rates.BTC;
+          break;
+      }
+    });
   }
 }
