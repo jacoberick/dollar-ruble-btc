@@ -10,7 +10,7 @@ import { XchangeAPIService } from 'src/app/services/xchange-api.service';
 export class CurrencyInfoComponent implements OnInit {
   currencyTypeEnum!: any;
   @Input() currencyType!: string;
-  currencyValue!: string;
+  currencyValue: string = '0';
   currencySign!: string;
   countryFlag!: string;
   apiInfo!: any;
@@ -29,14 +29,17 @@ export class CurrencyInfoComponent implements OnInit {
         case this.currencyTypeEnum.usDollar:
           this.currencySign = '$';
           this.currencyValue = this.apiInfo.rates.USD;
+          this.countryFlag = '../../../assets/images/usFlag.jpg';
           break;
         case this.currencyTypeEnum.ruRuble:
           this.currencySign = '₽';
           this.currencyValue = this.apiInfo.rates.RUB;
+          this.countryFlag = '../../../assets/images/russiaFlag.jpg';
           break;
         case this.currencyTypeEnum.btc:
           this.currencySign = '₿';
           this.currencyValue = this.apiInfo.rates.BTC;
+          this.countryFlag = '../../../assets/images/btcLogo.png';
           break;
       }
     });

@@ -9,3 +9,13 @@ p {
 .currency-info-container {
   margin-bottom: 3rem;
 }
+
+#typeFlagContainer {
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 1rem;
+    margin-left: 0.5rem;
+  }
+}

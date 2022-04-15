@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class XchangeAPIService {
-  private apiUrl = 'https://api.exchangerate.host/latest';
+  private apiUrl = 'https://api.exchangerate.host/latest?base=USD';
 
   constructor(private http: HttpClient) {}
 

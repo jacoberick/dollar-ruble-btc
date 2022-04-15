@@ -1,4 +1,8 @@
 <div class="currency-info-container">
-  <h2>{{ currencyType }}</h2>
-  <p>{{ currencySign + currencyValue }}</p>
+  <div id="typeFlagContainer">
+    <h2>{{ currencyType }}</h2>
+    <img *ngIf="countryFlag" src="{{ countryFlag }}" alt="Country flag" />
+  </div>
+
+  <p>{{ currencySign }} {{ currencyValue }}</p>
 </div>
