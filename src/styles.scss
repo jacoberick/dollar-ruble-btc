@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+// global color vars
+:root {
+  --color-main: #121212;
+  --color-white: #fefefe;
+}
+
+body {
+  background-color: var(--color-main);
+  margin: 0;
+  padding: 0;
+
+  h2,
+  p {
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  button {
+    background-color: var(--color-main);
+    border: 2px solid var(--color-white);
+    min-width: 7rem;
+    color: var(--color-white);
+    border-radius: 3px;
+    text-transform: uppercase;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 250ms;
+  }
+
+  button:hover {
+    background-color: var(--color-white);
+    color: var(--color-main);
+  }
+
+  button:active {
+    transform: scale(1.1);
+  }
+}

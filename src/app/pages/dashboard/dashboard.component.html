@@ -1,0 +1,17 @@
+<div id="dashboardContainer">
+  <app-select-base-buttons></app-select-base-buttons>
+  <div id="currencyInfoContainer">
+    <app-currency-info
+      class="currency-info"
+      currencyType="{{ currencyTypeEnum.usDollar }}"
+    ></app-currency-info>
+    <app-currency-info
+      class="currency-info"
+      currencyType="{{ currencyTypeEnum.ruRuble }}"
+    ></app-currency-info>
+    <app-currency-info
+      class="currency-info"
+      currencyType="{{ currencyTypeEnum.btc }}"
+    ></app-currency-info>
+  </div>
+</div>

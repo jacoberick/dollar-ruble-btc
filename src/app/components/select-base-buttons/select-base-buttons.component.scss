@@ -1,0 +1,16 @@
+#selectBaseButtonsContainer {
+  margin-top: 4rem;
+}
+
+button:nth-child(3) {
+  margin: 0 2rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.selected {
+  background-color: var(--color-white);
+  color: var(--color-main);
+}
